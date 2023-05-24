@@ -1,0 +1,39 @@
+﻿<Page x:Class="Prac7._1.View.AdminPage"
+     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Prac7._1.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AdminPage">
+
+    <Grid Background="BlanchedAlmond">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.ColumnSpan="7" Text="Marmeladki" FontFamily="Courier new" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40"/>
+        <DataGrid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="5" Grid.RowSpan="4" Background="BurlyWood" CanUserAddRows="True" ItemsSource="{Binding Marmelade}" SelectedItem="{Binding Selected, Mode=TwoWay}"/>
+        <TextBox x:Name="NameTbx" Text="{Binding Selected.Name}" Grid.Column="5" Grid.Row="1" Height="20" materialDesign:HintAssist.Hint="Название мармеладок" Grid.ColumnSpan="2" Padding="0,0,0,3" VerticalAlignment="Center" Background="BurlyWood" />
+        <TextBox x:Name="TypeCombo" Text="{Binding Selected.Flavour}" Grid.Column="5" Grid.Row="2" Height="20" materialDesign:HintAssist.Hint="Вкус мармеладок" Grid.ColumnSpan="2" VerticalAlignment="Center" Background="BurlyWood" Padding="0,-1,0,0"/>
+        <TextBox x:Name="MoneyTbx" Text="{Binding Selected.Ammount}" Grid.Column="5" Grid.Row="3" Height="20" materialDesign:HintAssist.Hint="Количество мармеладок" Grid.ColumnSpan="2" Padding="0,0,0,3" VerticalAlignment="Center" Background="BurlyWood"/>
+        <Button Grid.Column="5" Grid.Row="5" Grid.ColumnSpan="2" Height="22"  Background="BurlyWood" Foreground="DarkSlateGray" FontSize="12" Padding="0,0,0,3"  VerticalAlignment="Center" Content="Добавить мармеладки" Command="{Binding AddCommand}"/>
+        <Button Grid.Column="5" Grid.Row="5" Grid.ColumnSpan="2" Height="22"  Background="BurlyWood" Foreground="DarkSlateGray" FontSize="12" Padding="0,0,0,3"  VerticalAlignment="Bottom" Content="Удалить выбранные мармеладки" Command="{Binding DeleteCommand}" />
+        <Button  Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="2" Height="22"  Background="BurlyWood" Foreground="DarkSlateGray" FontSize="12" Padding="0,0,0,3"  VerticalAlignment="Center" Content="Сохранить мармеладки" Command="{Binding Serialize}"/>
+    </Grid>
+</Page>
