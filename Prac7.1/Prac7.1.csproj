@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\123\123.csproj" />
+    <ProjectReference Include="..\mblib\mblib.csproj" />
   </ItemGroup>
 
 </Project>

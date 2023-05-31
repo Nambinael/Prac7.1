@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Newtonsoft.Json;
 using _123;
+using mblib;
 
 namespace Prac7._1.ViewModel
 {
@@ -52,6 +53,7 @@ namespace Prac7._1.ViewModel
 		{
 			Marmelade.Add(Selected);
 			Selected =  new Marmelade();
+			Class2.MbAdd();
 		}
 	
         public void DeleteItems()
@@ -59,12 +61,14 @@ namespace Prac7._1.ViewModel
             if (Selected != null)
             {
                 Marmelade.Remove(Selected);
+				Class2.MbDel();
             }
         }
 
 		public void SerializeItems()
 		{
 			Class1.MySerialize(Marmelade);
+			Class2.MbSer();
 		}
 		#endregion
 		
